@@ -5,10 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
+    public Animator SettingPanel;
+    public Animator MainMenuPanel;
     // Start is called before the first frame update
     void Start()
     {
-        
+        SettingPanel = SettingPanel.GetComponent<Animator>();
+        MainMenuPanel = MainMenuPanel.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -20,5 +23,19 @@ public class MainMenuManager : MonoBehaviour
     public void newGame()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void OpenSetting()
+    {
+        MainMenuPanel.enabled = true;
+        SettingPanel.enabled = true;
+        MainMenuPanel.SetBool("isHidden", true);
+        SettingPanel.SetBool("isHidden", false);
+        
+    }
+
+    public void CloseSetting()
+    {
+        SettingPanel.SetBool("isHidden", true);  
     }
 }
