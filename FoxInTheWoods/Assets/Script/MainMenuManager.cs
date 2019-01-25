@@ -7,11 +7,13 @@ public class MainMenuManager : MonoBehaviour
 {
     public Animator SettingPanel;
     public Animator MainMenuPanel;
+    public Animator ControlsMenuPanel;
     // Start is called before the first frame update
     void Start()
     {
         SettingPanel = SettingPanel.GetComponent<Animator>();
         MainMenuPanel = MainMenuPanel.GetComponent<Animator>();
+        ControlsMenuPanel = ControlsMenuPanel.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -38,5 +40,19 @@ public class MainMenuManager : MonoBehaviour
     {
         MainMenuPanel.SetBool("isHidden", false);
         SettingPanel.SetBool("isHidden", true);  
+    }
+
+    public void OpenControls()
+    {
+        MainMenuPanel.enabled = true;
+        ControlsMenuPanel.enabled = true;
+        MainMenuPanel.SetBool("isHidden", true);
+        ControlsMenuPanel.SetBool("isHidden", false);
+    }
+
+    public void CloseControls()
+    {
+        MainMenuPanel.SetBool("isHidden", false);
+        ControlsMenuPanel.SetBool("isHidden", true);
     }
 }
