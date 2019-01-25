@@ -36,6 +36,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void CloseSetting()
     {
+        MainMenuPanel.SetBool("isHidden", false);
         SettingPanel.SetBool("isHidden", true);  
     }
 }
